@@ -1,8 +1,10 @@
+const fs = require('fs');
 const http = require('http');
 const PORT = 5000;
 
 const server = http.createServer(function (request, response) {
-    response.end('Home page goes here');
+    const webpage = fs.readFileSync('./index.html', 'utf-8');
+    response.end(webpage);
 });
 
 server.listen(PORT);
